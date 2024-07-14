@@ -9,6 +9,8 @@
   --LIGHTPINK: hsl(275, 100%, 97%);
   --GRAYISHPURPLE: hsl(292, 16%, 49%);
   --DARKPURPLE: hsl(292, 42%, 14%);
+
+  --PURPLEHOVER: #ad28eb;
 }
 
 body {
@@ -26,6 +28,7 @@ body {
   padding: 1.5rem;
   margin: 1.5rem;
   border-radius: 1rem;
+  max-width: 600px;
 }
 
 header {
@@ -46,8 +49,11 @@ header h1 {
 
 .accordion__item {
   margin-bottom: 1rem;
+  padding: 0.5rem 0;
+}
+
+.accordion__item:not(:last-child) {
   border-bottom: 2px solid var(--LIGHTPINK);
-  cursor: pointer;
 }
 
 .question {
@@ -58,6 +64,15 @@ header h1 {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  cursor: pointer;
+}
+
+.accordion__header:hover {
+  color: var(--PURPLEHOVER);
+}
+
+.accordion__header .icon__minus {
+  display: none;
 }
 
 .accordion__content {
@@ -76,4 +91,21 @@ header h1 {
 
 .accordion__item.active .accordion__content {
   max-height: 10rem;
+}
+
+.accordion__item.active .accordion__header .icon__minus {
+  display: block;
+}
+
+.accordion__item.active .accordion__header .icon__plus {
+  display: none;
+}
+
+@media (min-width: 376px) {
+  body {
+    background-image: url(/assets/images/background-pattern-desktop.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: var(--LIGHTPINK);
+  }
 }
